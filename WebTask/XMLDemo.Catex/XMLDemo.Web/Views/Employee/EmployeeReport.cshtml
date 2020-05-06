@@ -1,0 +1,27 @@
+﻿@model IEnumerable<XMLDemo.Web.Models.EmployeeReport>
+@{
+    ViewData["Title"] = "Employee Report";
+}
+
+<h4>Employee Report</h4>
+
+<div class="demo-section k-content wide">
+    @(Html.Kendo().Chart(Model)
+    .Name("chart")
+    .Title("Country with total Employee Salary")
+    .Series(series =>
+    {
+        series
+            .Column(model => model.TotalSalary, categoryExpression: model => model.Country)
+            .Aggregate(ChartSeriesAggregate.Sum);
+
+    })
+    .CategoryAxis(axis => axis
+        .MajorGridLines(lines => lines.Visible(false))
+    )
+    .ValueAxis(axis => axis
+        .Numeric()
+        .Line(line => line.Visible(false))
+    )
+    )
+</div>

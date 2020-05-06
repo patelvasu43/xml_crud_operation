@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h4 class="display-4">Welcome</h4>
+    <br />
+    <p>
+        <a asp-controller="Employee"
+           asp-action="index">Employee Listing</a>
+    </p>
+    <p>
+
+        <a asp-controller="FileUpload"
+           asp-action="index">File Upload Listing</a>
+    </p>
+
+    <p>
+
+        <a asp-controller="Employee"
+           asp-action="EmployeeReport">Employee Chart/Report</a>
+    </p>
+</div>

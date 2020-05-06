@@ -1,0 +1,56 @@
+﻿@model IEnumerable<XMLDemo.Web.Models.UploadFile>
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>File Listing</h4>
+
+<p>
+    <a asp-action="CustomDropZone">Upload File</a>
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>Display File</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FileName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FileUploadDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FileFullPath)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        <img src=@Url.Content("~/Image/" + item.FileName) alt="Image" style="height:50px;width:100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileUploadDateTime)
+                    </td>
+                    <td style="word-break:break-word">
+                        @Html.DisplayFor(modelItem => item.FileFullPath)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
